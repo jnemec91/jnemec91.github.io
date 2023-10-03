@@ -210,8 +210,8 @@ span > .white-anchor:hover{
 }
 
 .contact-links{
-    padding-top: 20vh;
-    padding-bottom: 20vh;
+    padding-top: 20vh!important;
+    padding-bottom: 20vh!important;
     width: 100%;
     height: auto;
     text-align: center;
@@ -264,12 +264,12 @@ span > .white-anchor:hover{
 
     section{
         height: auto;
-        overflow: auto;
+        overflow: hidden;
     }
 
     section:last-of-type{
         height: 80vh;
-        overflow: auto;
+        overflow: hidden;
     }
 
     #about-split{
@@ -292,7 +292,42 @@ span > .white-anchor:hover{
         margin:  30px 0 30px 0;
     }
 
+    #photo-section > img{
+        position:relative;
+        max-width: 50%;
+        margin-left: 25%;
+        margin-right: auto
+    }    
+
+    #photo-section > h2{
+        margin-left: 0px;
+        padding: 0 0 0 40px
+    } 
+
+    #photo-section > p{
+        margin-left: 0px;
+        padding: 0 0 0 40px
+    }           
+
 }
+
+@media only screen and (max-width: 500px) {
+    section{
+        padding-left: 2%;
+        padding-right: 2%;
+    }
+    p{
+        padding-left: 0!important;
+    }
+    h2{
+        padding-left: 0 !important;
+        margin-left: 0 !important;
+    }
+    div{
+        padding-left: 0!important;
+    }
+}
+
 
 html {
 	scroll-behavior: smooth;
