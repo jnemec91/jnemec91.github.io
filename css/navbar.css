@@ -1,0 +1,86 @@
+#navbar{
+    text-align: right;
+    position: fixed;
+    list-style: none;
+    width:100vw;
+    height:80px;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    left: 0;
+    background-color: #333;
+    z-index: 5;
+}
+
+#navbar > li{
+    display: inline-block;
+    width: 200px;
+    height: 100%;
+    background-color: #333;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+#navbar > li > a{
+    display: block;
+    padding-top: 27px;
+    /* padding-bottom: auto; */
+    height: calc(100% - 30px);
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    color: var(--font-color);
+}
+
+#navbar > li > a:hover{
+    background-color: var(--nav-color);
+    color: var(--orangered);
+}
+
+
+@media only screen and (max-width: 1420px) {
+    #navbar{
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: auto;
+    }
+
+    #navbar > li > a{
+        padding-top: 27px;
+        padding-bottom:27px;
+        display: block;
+        width: 100%;
+    }
+    #navbar > li{
+        width: 100%;
+        display: block;
+    }
+
+    .navbar-hidden{
+        display: none;
+    }
+    
+    .navbar-visible{
+        display: block;
+    }
+
+    #nav-enabler{
+        z-index: 6;
+        position: fixed;
+        top:20px;
+        right:20px;
+        visibility: visible;
+        border: 1px solid var(--nav-color);
+        border-radius: 10px;
+        background-color: var(--nav-color);
+        color: var(--font-color);
+        padding: 10px;
+        font-size: 1.2em;
+    }    
+
+    #nav-enabler:hover{
+        background-color: var(--orangered);
+        color: var(--font-color);
+    }
+}

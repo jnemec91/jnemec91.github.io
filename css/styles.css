@@ -3,7 +3,8 @@
     --orangered: orangered;
     --grey: rgba(119,119,119,1);
     --orange-background: linear-gradient(45deg, rgba(252,131,51,1) 0%, rgba(255,69,0,1) 100%);
-    --grey--background: linear-gradient(45deg, rgba(119,119,119,1) 0%, rgba(65,65,65,1) 100%)
+    --grey--background: linear-gradient(45deg, rgba(119,119,119,1) 0%, rgba(65,65,65,1) 100%);
+    --nav-color: #111;
 }
 
 
@@ -20,45 +21,6 @@ body{
     left: 5%;
     z-index: 1;
     color: var(--font-color);
-}
-
-#navbar{
-    text-align: right;
-    position: fixed;
-    list-style: none;
-    width:100vw;
-    height:80px;
-    margin: 0;
-    padding: 0;
-    top: 0;
-    left: 0;
-    background-color: #333;
-    z-index: 5;
-}
-
-#navbar > li{
-    display: inline-block;
-    width: 200px;
-    height: 100%;
-    background-color: #333;
-    font-size: 1.3rem;
-    cursor: pointer;
-}
-
-#navbar > li > a{
-    display: block;
-    padding-top: 27px;
-    /* padding-bottom: auto; */
-    height: calc(100% - 30px);
-    text-align: center;
-    text-decoration: none;
-    cursor: pointer;
-    color: var(--font-color);
-}
-
-#navbar > li > a:hover{
-    background-color: #111;
-    color: var(--orangered);
 }
 
 section{
@@ -243,25 +205,6 @@ span > .white-anchor:hover{
 }
 
 @media only screen and (max-width: 1420px) {
-    #navbar{
-        position: static;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: auto;
-    }
-
-    #navbar > li > a{
-        padding-top: 27px;
-        padding-bottom:27px;
-        display: block;
-        width: 100%;
-    }
-    #navbar > li{
-        width: 100%;
-        display: block;
-    }  
-
     section{
         height: auto;
         overflow: hidden;
