@@ -158,7 +158,7 @@ span > .white-anchor:hover{
 #projects-wrapper{
     height: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
 }
 
 #projects-wrapper > div{
@@ -305,4 +305,3 @@ html {
 		scroll-behavior: auto;
 	}
 }
-
