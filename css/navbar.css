@@ -9,7 +9,7 @@
     left: 0;
     background-color: #333;
     z-index: 5;
-    transition: max-height 0.4s ease-in-out;
+    transition: max-height 0.2s ease-in-out;
 }
 
 #navbar > li{
@@ -34,6 +34,16 @@
 #navbar > li > a:hover{
     background-color: var(--nav-color);
     color: var(--orangered);
+}
+
+#navbar-toggler{
+    z-index: 4;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
 }
 
 @media only screen and (min-width: 1420px) {
