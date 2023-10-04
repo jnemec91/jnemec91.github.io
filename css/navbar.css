@@ -3,13 +3,13 @@
     position: fixed;
     list-style: none;
     width:100vw;
-    height:80px;
     margin: 0;
     padding: 0;
     top: 0;
     left: 0;
     background-color: #333;
     z-index: 5;
+    transition: max-height 0.4s ease-in-out;
 }
 
 #navbar > li{
@@ -24,7 +24,6 @@
 #navbar > li > a{
     display: block;
     padding-top: 27px;
-    /* padding-bottom: auto; */
     height: calc(100% - 30px);
     text-align: center;
     text-decoration: none;
@@ -37,13 +36,21 @@
     color: var(--orangered);
 }
 
+@media only screen and (min-width: 1420px) {
+    #navbar{
+        height: 80px;
+    }
+}
 
 @media only screen and (max-width: 1420px) {
     #navbar{
-        position: fixed;
-        top: 0;
-        left: 0;
         height: auto;
+        overflow: hidden;
+        max-height: 400px;
+    }
+
+    #navbar.collapsed{
+        max-height: 0px;
     }
 
     #navbar > li > a{
@@ -57,15 +64,8 @@
         display: block;
     }
 
-    .navbar-hidden{
-        display: none;
-    }
-    
-    .navbar-visible{
-        display: block;
-    }
-
     #nav-enabler{
+        cursor: pointer;
         z-index: 6;
         position: fixed;
         top:20px;
