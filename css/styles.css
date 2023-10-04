@@ -5,8 +5,8 @@
     --orange-background: linear-gradient(45deg, rgba(252,131,51,1) 0%, rgba(255,69,0,1) 100%);
     --grey--background: linear-gradient(45deg, rgba(119,119,119,1) 0%, rgba(65,65,65,1) 100%);
     --nav-color: #111;
+    --wrapper-color: #333;
 }
-
 
 body{
     margin: 0;
@@ -151,7 +151,7 @@ span > .white-anchor:hover{
     padding: 10px;
     border: 1px solid var(--font-color);
     border-radius: 5px;
-    background-color: #333;
+    background-color: var(--wrapper-color);
     color: var(--font-color);
     height: 60%;
     text-align: center;
