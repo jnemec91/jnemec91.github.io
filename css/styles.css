@@ -8,6 +8,13 @@
     --wrapper-color: #333;
 }
 
+.codewars::before {
+    content: url(../images/codewars.svg);
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+  }
+
 body{
     margin: 0;
     padding: 0;
@@ -263,6 +270,10 @@ span > .white-anchor:hover{
     #badge{
         position: relative!important;
         top: -20px;
+    }
+
+    .contact-links > a:first-of-type {
+        padding-left: 0%;
     }
 
 }
