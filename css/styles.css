@@ -55,8 +55,7 @@ section > h1{
 }   
 
 #photo-section{
-    display: flex;
-    flex-wrap: wrap;
+    position: relative;
 }
 
 #photo-section > p,h2{
@@ -74,6 +73,15 @@ section > h1{
     max-width: 20%;
     z-index: 0;
     border-radius: 50%;
+}
+
+#badge{
+    width: 100vw;
+    position: absolute!important;
+    top: 251px;
+    left: 0px;
+    border: none!important;
+    border-radius: 0px!important;
 }
 
 #about-split{
@@ -250,7 +258,12 @@ span > .white-anchor:hover{
     #photo-section > p{
         margin-left: 0px;
         padding: 0 0 0 40px
-    }           
+    }
+
+    #badge{
+        position: relative!important;
+        top: -20px;
+    }
 
 }
 
