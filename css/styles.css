@@ -168,11 +168,15 @@ span > .white-anchor:hover{
     border-radius: 5px;
     background-color: var(--wrapper-color);
     color: var(--font-color);
-    height: 60%;
+    height: 70%;
     text-align: center;
 }
 
-#projects-wrapper > div > img{
+#projects-wrapper > div > a:hover{
+    opacity: 0.4;
+}
+
+#projects-wrapper > div > a > img{
     max-width: 80%;
     max-height: auto;
 }
