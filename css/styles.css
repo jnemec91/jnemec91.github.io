@@ -47,7 +47,8 @@ section:nth-of-type(2){
 }
 
 section:nth-of-type(3){
-    background: var(--orange-background)
+    background: var(--orange-background);
+    height: auto;
 }
 
 section:nth-of-type(4){
@@ -168,7 +169,7 @@ span > .white-anchor:hover{
     border-radius: 5px;
     background-color: var(--wrapper-color);
     color: var(--font-color);
-    height: 70%;
+    /* height: 70%; */
     text-align: center;
 }
 
@@ -176,7 +177,7 @@ span > .white-anchor:hover{
     opacity: 0.4;
 }
 
-#projects-wrapper > div > a > img{
+#projects-wrapper > div > * > img{
     max-width: 80%;
     max-height: auto;
 }
