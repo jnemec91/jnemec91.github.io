@@ -1,10 +1,17 @@
 :root{
-    --font-color: seashell;
-    --orangered: orangered;
+    /* --font-color-one: seashell; */
+    --font-color-one: seashell;
+    /* --font-color-two: black;     */
+    --font-color-two: seashell;
+    /* --orangered: orangered;     */
+    --orangered: gold;
     --grey: rgba(119,119,119,1);
-    --orange-background: linear-gradient(45deg, rgba(252,131,51,1) 0%, rgba(255,69,0,1) 100%);
-    --grey--background: linear-gradient(45deg, rgba(119,119,119,1) 0%, rgba(65,65,65,1) 100%);
-    --nav-color: #111;
+    /* --orange-background: linear-gradient(45deg, rgba(252,131,51,1) 0%, rgba(255,69,0,1) 100%); */
+    --orange-background: linear-gradient(90deg, rgba(120,0,0,1) 0%, rgba(166,33,33,1) 50%, rgba(120,0,0,1) 100%);
+    --grey--background: linear-gradient(90deg, rgba(3,120,0,1) 0%, rgba(0,74,4,1) 50%, rgba(3,120,0,1) 100%);
+    /* --grey--background: linear-gradient(45deg, rgba(119,119,119,1) 0%, rgba(65,65,65,1) 100%); */
+    /* --nav-color: #111; */
+    --nav-color:  linear-gradient(108deg, rgba(3,120,0,1) 0%, rgba(3,120,0,1) 10%, rgba(166,33,33,1) 10%, rgba(166,33,33,1) 20%, rgba(255,255,255,1) 20%, rgba(255,255,255,1) 30%, rgba(3,120,0,1) 30%, rgba(3,120,0,1) 40%, rgba(166,33,33,1) 40%, rgba(166,33,33,1) 50%, rgba(255,255,255,1) 50%, rgba(255,255,255,1) 60%, rgba(3,120,0,1) 60%, rgba(3,120,0,1) 70%, rgba(166,33,33,1) 70%, rgba(166,33,33,1) 80%, rgba(255,255,255,1) 80%, rgba(255,255,255,1) 90%, rgba(3,120,0,1) 90%, rgba(3,120,0,1) 100%);
     --wrapper-color: #333;
 }
 
@@ -27,7 +34,7 @@ body{
     top: 0;
     left: 5%;
     z-index: 1;
-    color: var(--font-color);
+    color: var(--font-color-one);
 }
 
 section{
@@ -38,22 +45,24 @@ section{
 }
 
 section:first-of-type{
-    background: var(--orange-background)
+    background: var(--orange-background);
+    color: var(--font-color-two);
 }
 
 section:nth-of-type(2){
     background: var(--grey--background);
-    color: var(--font-color);
+    color: var(--font-color-one);
 }
 
 section:nth-of-type(3){
     background: var(--orange-background);
+    color: var(--font-color-two);
     height: auto;
 }
 
 section:nth-of-type(4){
     background: var(--grey--background);
-    color: var(--font-color);
+    color: var(--font-color-one);
 }
 
 section > h1{
@@ -75,8 +84,8 @@ section > h1{
     padding-top: 1%;
 }
 
-#photo-section > img{
-    border: 2px solid var(--grey);
+#photo-section > #profile-picture{
+    border: 5px solid var(--orangered);
     position: absolute;
     max-width: 20%;
     z-index: 0;
@@ -129,7 +138,7 @@ section > h1{
 
 #certificates > li > a{
     text-decoration: none;
-    color: var(--font-color);
+    color: var(--font-color-one);
 }
 
 #certificates > li > a:hover{
@@ -142,17 +151,18 @@ span > .orange-anchor{
 }
 
 span > .orange-anchor:hover{
-    color: var(--font-color);
+    color: var(--font-color-one);
     text-decoration: none;
 }
 
 span > .white-anchor{
-    color: var(--grey);
+    /* color: var(--grey); */
+    color: var(--orangered);    
     text-decoration: none;
 }
 
 span > .white-anchor:hover{
-    color:  var(--font-color);
+    color:  var(--font-color-one);
     text-decoration: none;
 }
 
@@ -165,10 +175,10 @@ span > .white-anchor:hover{
 #projects-wrapper > div{
     margin: 10px;
     padding: 10px;
-    border: 1px solid var(--font-color);
+    border: 1px solid var(--font-color-one);
     border-radius: 5px;
     background-color: var(--wrapper-color);
-    color: var(--font-color);
+    color: var(--font-color-one);
     /* height: 70%; */
     text-align: center;
 }
@@ -184,7 +194,7 @@ span > .white-anchor:hover{
 
 .project-link{
     text-decoration: none;
-    color: var(--font-color);
+    color: var(--font-color-one);
 }
 
 .project-link:hover{
@@ -205,7 +215,7 @@ span > .white-anchor:hover{
     margin: auto;
     text-decoration: none;
     font-size: 2rem;
-    color: var(--font-color);
+    color: var(--font-color-one);
 }
 
 .contact-links > a:first-of-type{
@@ -255,7 +265,7 @@ span > .white-anchor:hover{
         margin:  30px 0 30px 0;
     }
 
-    #photo-section > img{
+    #photo-section > #profile-picture{
         position:relative;
         max-width: 50%;
         margin-left: 25%;
@@ -281,6 +291,15 @@ span > .white-anchor:hover{
         padding-left: 0%;
     }
 
+    #hat{
+        position: absolute;
+        height: 20%!important;
+        transform: rotate(-15deg);
+        top: -6%!important;
+        left: 38%!important;
+        z-index: 1;
+    }    
+
 }
 
 @media only screen and (max-width: 500px) {
@@ -298,8 +317,16 @@ span > .white-anchor:hover{
     div{
         padding-left: 0!important;
     }
-}
 
+    #hat{
+        position: absolute;
+        height: 15%!important;
+        transform: rotate(-15deg);
+        top: -4%!important;
+        left: 40%!important;
+        z-index: 1;    
+    }
+}    
 
 html {
 	scroll-behavior: smooth;
@@ -309,4 +336,27 @@ html {
 	html {
 		scroll-behavior: auto;
 	}
+}
+
+/* christmas spirit */
+
+
+.ball{
+    margin: 0;
+    padding: 0;
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border: 1px solid transparent;
+    border-radius: 50px;
+    z-index: 9999;
+}
+
+#hat{
+    position: absolute;
+    height: 60%;
+    transform: rotate(-15deg);
+    top: -15%;
+    left: 5.5%;
+    z-index: 1;
 }

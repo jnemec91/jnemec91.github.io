@@ -7,16 +7,17 @@
     padding: 0;
     top: 0;
     left: 0;
-    background-color: #333;
+    background: var(--nav-color);
     z-index: 5;
     transition: max-height 0.2s ease-in-out;
+    border-bottom: 5px solid black;
 }
 
 #navbar > li{
     display: inline-block;
     width: 200px;
     height: 100%;
-    background-color: #333;
+    background-color: transparent;
     font-size: 1.3rem;
     cursor: pointer;
 }
@@ -24,15 +25,18 @@
 #navbar > li > a{
     display: block;
     padding-top: 27px;
-    height: calc(100% - 30px);
+    height: calc(100% - 25px);
     text-align: center;
     text-decoration: none;
     cursor: pointer;
-    color: var(--font-color);
+    color: black;
+    font-weight: bolder;
+    text-shadow: grey 1px 0 10px;
 }
 
 #navbar > li > a:hover{
-    background-color: var(--nav-color);
+    /* background-color: var(--nav-color); */
+    background-color: rgba(0,0,0,0.5);
     color: var(--orangered);
 }
 
@@ -84,13 +88,13 @@
         border: 1px solid var(--nav-color);
         border-radius: 10px;
         background-color: var(--nav-color);
-        color: var(--font-color);
+        color: var(--font-color-one);
         padding: 10px;
         font-size: 1.2em;
     }    
 
     #nav-enabler:hover{
         background-color: var(--orangered);
-        color: var(--font-color);
+        color: var(--font-color-one);
     }
 }
