@@ -27,6 +27,7 @@ body{
     padding: 0;
     font-family: Helvetica, sans-serif;
     font-size: large;
+    overflow-x: hidden;
 }
 
 #page-heading{
@@ -42,6 +43,7 @@ section{
     margin: 0;
     padding: 80px;
     padding-top: 100px;
+    min-height: 100vh;
 }
 
 section:first-of-type{
@@ -116,7 +118,7 @@ section > h1{
 }
 
 #events-heading{
-    margin-top: 10%;
+    margin-top: 5%;
 }
 
 .certificates{
@@ -167,10 +169,14 @@ span > .white-anchor:hover{
     text-decoration: none;
 }
 
+#projects{
+    min-height: 100vh;
+}
+
 #projects-wrapper{
     height: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
 #projects-wrapper > div{
@@ -180,7 +186,8 @@ span > .white-anchor:hover{
     border-radius: 5px;
     background-color: var(--wrapper-color);
     color: var(--font-color-one);
-    /* height: 70%; */
+    height: auto;
+    width: 90%;
     text-align: center;
 }
 
