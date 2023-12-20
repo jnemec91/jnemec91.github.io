@@ -31,7 +31,7 @@
     cursor: pointer;
     color: black;
     font-weight: bolder;
-    text-shadow: grey 1px 0 10px;
+    text-shadow: white 4px 0 10px;
 }
 
 #navbar > li > a:hover{

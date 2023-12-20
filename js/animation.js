@@ -3,8 +3,6 @@ function add_ball(){
     let posx = Math.floor(Math.random() * screen.width);
     let posy = window.scrollY;
 
-    console.log(posx, posy, par)
-
     const ball = document.createElement("div");
     ball.classList.add('ball');
     par.appendChild(ball);
@@ -20,7 +18,7 @@ function add_ball(){
     id = setInterval(frame, 3);
 
     function frame() {
-    if (pos >= screen.height+ window.scrollY - 180 || pos < window.scrollY - 50) {
+    if (pos >= screen.height+ window.scrollY - 180 || pos < window.scrollY - 50 || parseInt(ball.style.left, 10) > screen.width) {
         clearInterval(id);
         ball.remove()
         let interval = Math.floor(Math.random() * 10000);            

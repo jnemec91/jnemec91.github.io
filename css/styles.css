@@ -73,32 +73,29 @@ section > h1{
 
 #photo-section{
     position: relative;
+    display: flex;
 }
 
-#photo-section > p,h2{
+#photo-section > div > p,h2{
     padding: 0 0 0 10px;
-    margin-left: 25%;
+    margin-left: 5%;
 }
 
-#photo-section > h2{
+#photo-section > div > h2{
     padding-top: 1%;
+}
+
+#photo-section > div{
+    flex: 1;
 }
 
 #photo-section > #profile-picture{
     border: 5px solid var(--orangered);
-    position: absolute;
+    position: relative;
+    text-overflow: clip;
     max-width: 20%;
     z-index: 0;
     border-radius: 50%;
-}
-
-#badge{
-    width: 100vw;
-    position: absolute!important;
-    top: 251px;
-    left: 0px;
-    border: none!important;
-    border-radius: 0px!important;
 }
 
 #about-split{
@@ -235,6 +232,11 @@ span > .white-anchor:hover{
 }
 
 @media only screen and (max-width: 1420px) {
+
+    #photo-section{
+        display: block;
+    }
+
     section{
         height: auto;
         overflow: hidden;
@@ -282,27 +284,49 @@ span > .white-anchor:hover{
         padding: 0 0 0 40px
     }
 
-    #badge{
-        position: relative!important;
-        top: -20px;
-    }
-
     .contact-links > a:first-of-type {
         padding-left: 0%;
     }
 
     #hat{
-        position: absolute;
-        height: 20%!important;
-        transform: rotate(-15deg);
-        top: -6%!important;
+        max-height: 30%!important;
+        top: -5%!important;
         left: 38%!important;
-        z-index: 1;
     }    
 
 }
 
+
+@media only screen and (max-width: 898px) {
+    #photo-section{
+        display: block;
+    }
+
+    #hat{
+        max-height: 22%!important;
+        left: 39%!important;
+    }       
+}
+
+
+@media only screen and (max-width: 720px) {
+    #photo-section{
+        display: block;
+    }
+
+    #hat{
+        top: -3%!important;
+        max-height: 15%!important;
+        left: 39%!important;
+    }       
+
+}
+
 @media only screen and (max-width: 500px) {
+    #photo-section{
+        display: block;
+    }
+
     section{
         padding-left: 2%;
         padding-right: 2%;
@@ -316,16 +340,8 @@ span > .white-anchor:hover{
     }
     div{
         padding-left: 0!important;
-    }
+    } 
 
-    #hat{
-        position: absolute;
-        height: 15%!important;
-        transform: rotate(-15deg);
-        top: -4%!important;
-        left: 40%!important;
-        z-index: 1;    
-    }
 }    
 
 html {
@@ -354,9 +370,9 @@ html {
 
 #hat{
     position: absolute;
-    height: 60%;
+    height: 40%!important;
     transform: rotate(-15deg);
-    top: -15%;
-    left: 5.5%;
+    top: -4%;
+    left: 6%;
     z-index: 1;
-}
+}    
