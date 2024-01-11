@@ -1,17 +1,17 @@
 :root{
-    /* --font-color-one: seashell; */
     --font-color-one: seashell;
-    /* --font-color-two: black;     */
-    --font-color-two: seashell;
-    /* --orangered: orangered;     */
-    --orangered: gold;
+    /* --font-color-one: seashell; */
+    --font-color-two: black;    
+    /* --font-color-two: seashell; */
+    --orangered: orangered;    
+    /* --orangered: gold; */
     --grey: rgba(119,119,119,1);
-    /* --orange-background: linear-gradient(45deg, rgba(252,131,51,1) 0%, rgba(255,69,0,1) 100%); */
-    --orange-background: linear-gradient(90deg, rgba(120,0,0,1) 0%, rgba(166,33,33,1) 50%, rgba(120,0,0,1) 100%);
-    --grey--background: linear-gradient(90deg, rgba(3,120,0,1) 0%, rgba(0,74,4,1) 50%, rgba(3,120,0,1) 100%);
-    /* --grey--background: linear-gradient(45deg, rgba(119,119,119,1) 0%, rgba(65,65,65,1) 100%); */
-    /* --nav-color: #111; */
-    --nav-color:  linear-gradient(108deg, rgba(3,120,0,1) 0%, rgba(3,120,0,1) 10%, rgba(166,33,33,1) 10%, rgba(166,33,33,1) 20%, rgba(255,255,255,1) 20%, rgba(255,255,255,1) 30%, rgba(3,120,0,1) 30%, rgba(3,120,0,1) 40%, rgba(166,33,33,1) 40%, rgba(166,33,33,1) 50%, rgba(255,255,255,1) 50%, rgba(255,255,255,1) 60%, rgba(3,120,0,1) 60%, rgba(3,120,0,1) 70%, rgba(166,33,33,1) 70%, rgba(166,33,33,1) 80%, rgba(255,255,255,1) 80%, rgba(255,255,255,1) 90%, rgba(3,120,0,1) 90%, rgba(3,120,0,1) 100%);
+    --orange-background: linear-gradient(45deg, rgba(252,131,51,1) 0%, rgba(255,69,0,1) 100%);
+    /* --orange-background: linear-gradient(90deg, rgba(120,0,0,1) 0%, rgba(166,33,33,1) 50%, rgba(120,0,0,1) 100%); */
+    /* --grey--background: linear-gradient(90deg, rgba(3,120,0,1) 0%, rgba(0,74,4,1) 50%, rgba(3,120,0,1) 100%); */
+    --grey--background: linear-gradient(45deg, rgba(119,119,119,1) 0%, rgba(65,65,65,1) 100%);
+    --nav-color: #222;
+    /* --nav-color:  linear-gradient(108deg, rgba(3,120,0,1) 0%, rgba(3,120,0,1) 10%, rgba(166,33,33,1) 10%, rgba(166,33,33,1) 20%, rgba(255,255,255,1) 20%, rgba(255,255,255,1) 30%, rgba(3,120,0,1) 30%, rgba(3,120,0,1) 40%, rgba(166,33,33,1) 40%, rgba(166,33,33,1) 50%, rgba(255,255,255,1) 50%, rgba(255,255,255,1) 60%, rgba(3,120,0,1) 60%, rgba(3,120,0,1) 70%, rgba(166,33,33,1) 70%, rgba(166,33,33,1) 80%, rgba(255,255,255,1) 80%, rgba(255,255,255,1) 90%, rgba(3,120,0,1) 90%, rgba(3,120,0,1) 100%); */
     --wrapper-color: #333;
 }
 
@@ -46,6 +46,11 @@ section{
     min-height: 100vh;
 }
 
+section > div{
+    background-color: transparent;
+    z-index: 5;
+}
+
 section:first-of-type{
     background: var(--orange-background);
     color: var(--font-color-two);
@@ -54,6 +59,8 @@ section:first-of-type{
 section:nth-of-type(2){
     background: var(--grey--background);
     color: var(--font-color-one);
+    position: relative;
+    height: auto;
 }
 
 section:nth-of-type(3){
@@ -92,7 +99,7 @@ section > h1{
 }
 
 #photo-section > #profile-picture{
-    border: 5px solid var(--orangered);
+    border: 5px solid var(--wrapper-color);
     position: relative;
     text-overflow: clip;
     max-width: 20%;
@@ -144,6 +151,7 @@ section > h1{
     color: var(--font-color-one);
 }
 
+
 .certificates > li > a:hover{
     color: var(--orangered);
 }
@@ -159,8 +167,8 @@ span > .orange-anchor:hover{
 }
 
 span > .white-anchor{
-    /* color: var(--grey); */
-    color: var(--orangered);    
+    color: var(--grey);
+    /* color: var(--orangered);     */
     text-decoration: none;
 }
 
@@ -299,12 +307,6 @@ span > .white-anchor:hover{
         padding-left: 0%;
     }
 
-    #hat{
-        max-height: 30%!important;
-        top: -5%!important;
-        left: 38%!important;
-    }    
-
 }
 
 
@@ -312,11 +314,7 @@ span > .white-anchor:hover{
     #photo-section{
         display: block;
     }
-
-    #hat{
-        max-height: 22%!important;
-        left: 39%!important;
-    }       
+    
 }
 
 
@@ -324,12 +322,6 @@ span > .white-anchor:hover{
     #photo-section{
         display: block;
     }
-
-    #hat{
-        top: -3%!important;
-        max-height: 15%!important;
-        left: 39%!important;
-    }       
 
 }
 
@@ -365,25 +357,3 @@ html {
 	}
 }
 
-/* christmas spirit */
-
-
-.ball{
-    margin: 0;
-    padding: 0;
-    width: 10px;
-    height: 10px;
-    background-color: white;
-    border: 1px solid transparent;
-    border-radius: 50px;
-    z-index: 9999;
-}
-
-#hat{
-    position: absolute;
-    height: 40%!important;
-    transform: rotate(-15deg);
-    top: -4%;
-    left: 6%;
-    z-index: 1;
-}    
