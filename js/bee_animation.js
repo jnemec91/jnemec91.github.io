@@ -1,17 +1,11 @@
 let maxbees = 0;
-let cursor_x = 0;
-let cursor_y = 0;
-
-document.onmousemove = function(event)
-{
- cursor_x = event.pageX;
- cursor_y = event.pageY;
-}
 
 function create_bee(){
     let par = document.getElementById('main')
-    let posx = cursor_x;
-    let posy = cursor_y;
+    let hive = document.getElementById('hive')
+
+    let posx = hive.offsetParent.offsetLeft + hive.offsetLeft + hive.offsetWidth/2;
+    let posy = hive.offsetParent.offsetTop + hive.offsetTop + hive.offsetHeight/2;
 
     const bee = document.createElement("div");
 
@@ -177,8 +171,17 @@ function create_bee(){
 
 let document_main = document.getElementById('hive');
 
-document_main.addEventListener("click", function(){
-        if (maxbees < 6){          
+window.addEventListener("scroll", function(){
+    for (let i = 0; i < 5; i++){
+        if (maxbees < 5){          
+            create_bee();
+            maxbees = maxbees  + 1
+        }
+    }
+    });
+
+hive.addEventListener("click", function(){
+        if (maxbees < 10){          
             create_bee();
             maxbees = maxbees  + 1
         }
