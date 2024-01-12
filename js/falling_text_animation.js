@@ -14,7 +14,7 @@ function removeAllChildNodes(parent) {
 
 // create rows of symbols in column
 function add_rows(col){
-    let posx = (screen.width-30) / 30 * col
+    let posx = (screen.width-30) / 10 * col
     let id;
     let speed = Math.floor(Math.random() * 2)+0.3;
     let way = ways[Math.floor(Math.random() * ways.length)]
@@ -32,7 +32,7 @@ function add_rows(col){
     column.classList.add('matrix-column')
     par.appendChild(column);
     
-    column.style.width = (Math.random() * ((screen.width-30) / 30))+ 10 + 'px'
+    column.style.width = (Math.random() * ((screen.width-30) / 2)) + 10 + 'px'
     column.style.height = par.offsetHeight + 'px'
     // column.style.border = '1px solid #000'
     column.style.zIndex = '1'
@@ -53,44 +53,54 @@ function add_rows(col){
 
     }
 
-    // js animation
-    clearInterval(id);
-    id = setInterval(frame, 1, way, speed);
+    function animate(){
+        // js animation
+        if (current_columns < 10){
+            current_columns = current_columns + 1
+            clearInterval(id);
+            id = setInterval(frame, 1, way, speed);
 
-    function frame(way, speed){
-        if (window.scrollY < par.offsetHeight){
-            if (way === 'up'){
-                posy = posy - speed            
-                column.style.top = posy + 'px'
-            }
-            else if (way === 'down'){
-                posy = posy + speed
-                column.style.top = posy + 'px'
-            }
+            function frame(way, speed){
+                if (window.scrollY < par.offsetHeight){
+                    if (way === 'up'){
+                        posy = posy - speed            
+                        column.style.top = posy + 'px'
+                    }
+                    else if (way === 'down'){
+                        posy = posy + speed
+                        column.style.top = posy + 'px'
+                    }
 
-            if (posy >= par.offsetHeight || posy <= 0 - par.offsetHeight){
-                if (current_columns < 20){
-                    waiting = false
-                    removeAllChildNodes(column)
-                    column.remove()
-                    add_rows(col)
-                    current_columns = current_columns + 1
-                    clearInterval(id);
-                }
-                else{
-                    if (waiting === false){
-                        waiting = true
-                        current_columns = current_columns - 1
+                    if (posy >= par.offsetHeight || posy <= 0 - par.offsetHeight){
+                            if (current_columns < 10){
+                                waiting = false
+                                removeAllChildNodes(column)
+                                column.remove()
+                                add_rows(col)
+                                clearInterval(id);
+                            }
+                            else{
+                                if (waiting === false){
+                                    waiting = true
+                                    current_columns = current_columns - 1
+                                }
+                            }
+                        
                     }
                 }
             }
         }
+        else{
+            setTimeout(animate, 5000)
+        }
     }
+
+    animate();
+
 }
 
 window.addEventListener("load", function(){
-    for (let column=0; column<30; column++){
-        current_columns = current_columns + 1
+    for (let column=0; column<10; column++){
         setTimeout(add_rows(column),5000*column);
     }
 
