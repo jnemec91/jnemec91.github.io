@@ -5,6 +5,8 @@ const rotationDirections = ['Y', 'X']
 const ways = ['down', 'down','up']
 let par = document.getElementById('welcome-section')
 let nav = document.getElementById('navbar')
+const max_columns = 20
+const max_speed = 20
 
 function removeAllChildNodes(parent) {
     while (parent.firstChild) {
@@ -14,9 +16,9 @@ function removeAllChildNodes(parent) {
 
 // create rows of symbols in column
 function add_rows(col){
-    let posx = (screen.width-30) / 10 * col
+    let posx = (screen.width-30) / max_columns * col
     let id;
-    let speed = Math.floor(Math.random() * 2)+0.3;
+    let speed = Math.floor(Math.random() * max_speed)+2;
     let way = ways[Math.floor(Math.random() * ways.length)]
     let posy;
     let waiting = false
@@ -32,7 +34,7 @@ function add_rows(col){
     column.classList.add('matrix-column')
     par.appendChild(column);
     
-    column.style.width = (Math.random() * ((screen.width-30) / 2)) + 10 + 'px'
+    column.style.width = (Math.random() * ((screen.width-30) / 10)) + 10 + 'px'
     column.style.height = par.offsetHeight + 'px'
     // column.style.border = '1px solid #000'
     column.style.zIndex = '1'
@@ -55,10 +57,10 @@ function add_rows(col){
 
     function animate(){
         // js animation
-        if (current_columns < 10){
+        if (current_columns < max_columns){
             current_columns = current_columns + 1
             clearInterval(id);
-            id = setInterval(frame, 1, way, speed);
+            id = setInterval(frame, 200, way, speed);
 
             function frame(way, speed){
                 if (window.scrollY < par.offsetHeight){
@@ -72,7 +74,7 @@ function add_rows(col){
                     }
 
                     if (posy >= par.offsetHeight || posy <= 0 - par.offsetHeight){
-                            if (current_columns < 10){
+                            if (current_columns < max_columns){
                                 waiting = false
                                 removeAllChildNodes(column)
                                 column.remove()
@@ -100,7 +102,7 @@ function add_rows(col){
 }
 
 window.addEventListener("load", function(){
-    for (let column=0; column<10; column++){
+    for (let column=0; column<max_columns; column++){
         setTimeout(add_rows(column),5000*column);
     }
 
