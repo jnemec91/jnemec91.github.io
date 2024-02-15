@@ -322,6 +322,11 @@ span > .white-anchor:hover{
         padding-left: 0%;
     }
 
+    #animation-canvas{
+        margin: 0;
+        height: 100%;
+    }
+
 }
 
 
@@ -372,13 +377,13 @@ html {
 	}
 }
 
-.matrix-symbol{
-    opacity: 0.8;
-    display: block;
-    text-align: center;
-    color: var(--orangered);
-    font-family: 'monospace'!important;
-    --webkit-text-stroke: 1px darkred;
+canvas{
+    /* background-color: black ; */
     z-index: 1;
-    text-shadow: 0px 0px 2px darkred;
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100vw; 
+    height: 117vh; 
+    margin-top: 8vh;
 }

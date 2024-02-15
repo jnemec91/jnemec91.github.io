@@ -10,19 +10,27 @@
         <link href="./css/bee.css" rel="stylesheet">
         <link href="./css/navbar.css" rel="stylesheet">
 
-        <!-- seo -->
-        <meta name="description" content="Jaroslav Němec personal page">
-        <meta name="keywords" content="Jaroslav, Němec, Jaroslav Němec, jnemec, jnemec91, jnemec91.github, jnemec91.github.io, jnemec91.github.io/personal-page, personal page, personal, page, personal-page, personalpage, personal_page, personalpage, personal_page,
+    <!-- SEO -->
+    <meta property="og:title" content="Jaroslav Němec - Personal Page">
+    <meta property="og:image" content="./images/1696342605139.jpg">
+    <meta property="og:description" content="Jaroslav Němec's personal page showcasing his work and projects in web development, programming, Python, Django, JavaScript, HTML, CSS, and more.">
+    <meta property="og:url" content="https://jnemecc91.github.io">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="Jaroslav Němec - Personal Page">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <meta name="description" content="Jaroslav Němec's personal page showcasing his work and projects in web development, programming, Python, Django, JavaScript, HTML, CSS, and more.">
+    <meta name="keywords" content="Jaroslav, Němec, Jaroslav Němec, jnemec, jnemec91, jnemec91.github, jnemec91.github.io, jnemec91.github.io/personal-page, personal page, personal, page, personal-page, personalpage, personal_page, personalpage, personal_page,
          personal-page, personal_page, programmer, programming, python, django, javascript, js, html, css, php, web, web development, webdeveloper, web_developer, web_development, web-development, programator, programátor, programator, programator, programátor, programátor,
          vývojář, web vývojář">
-        <meta name="author" content="Jaroslav Němec">
-
+    <meta name="author" content="Jaroslav Němec">
 
     </head>
     <body>
         <script src="./js/navbar.js"></script>
         
-
         <ul id='navbar' class="collapsed">
             <li><a onclick="ToggleMenu()" href="#welcome-section">Welcome</a></li>
             <li><a onclick="ToggleMenu()" href="#about">About</a></li>
@@ -33,6 +41,7 @@
         <div id="navbar-toggler" onclick="ToggleMenu()"></div>
         <main id="main">
             <section id="welcome-section">
+                <canvas id="animation-canvas"></canvas>
                 <h1>Welcome to my personal page!</h1>
                 <div id="photo-section">
                     <img id="profile-picture" src="./images/1696342605139.jpg" alt="not found">
@@ -159,6 +168,6 @@
             </section>
         </main>
                 <script src="./js/bee_animation.js"></script>
-                <script src="./js/falling_text_animation.js"></script>
+                <script src="./js/particles_animation.js"></script>
     </body>
 </html>
