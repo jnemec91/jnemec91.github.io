@@ -80,7 +80,7 @@ class Particle{
                             planet_mass = planet_mass - particle_mass;
                         }
 
-                        // this.directionX = this.directionX * -1;
+                        this.directionX = this.directionX * -1;
                         break;
                     }
 
@@ -98,7 +98,7 @@ class Particle{
                             planet_mass = planet_mass - particle_mass;
                         }
 
-                        // spaceMap[x + "" + y][i].directionX = spaceMap[x + "" + y][i].directionX * -1;
+                        spaceMap[x + "" + y][i].directionX = spaceMap[x + "" + y][i].directionX * -1;
                         break;
                     }
 
