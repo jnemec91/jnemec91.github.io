@@ -71,7 +71,7 @@ class Particle{
 
                         let planet_mass = spaceMap[x + "" + y][i] - spaceMap[x + "" + y][i].radius;
 
-                        spaceMap[x + "" + y][i].explode();
+                        // spaceMap[x + "" + y][i].explode();
                         delete spaceMap[x + "" + y][i];
 
                         while (planet_mass > 0){
@@ -89,7 +89,7 @@ class Particle{
 
                         let planet_mass = this.radius;
 
-                        this.explode();
+                        // this.explode();
                         delete spaceMap[x + "" + y][spaceMap[x + "" + y].indexOf(this)];
 
                         while (planet_mass > 0){
