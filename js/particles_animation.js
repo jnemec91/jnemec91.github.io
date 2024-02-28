@@ -1,14 +1,18 @@
-const direction = [-1, 1]
-let color = '#BF4F26'
-const numberOfParticles = screen.width/50;
-console.log(numberOfParticles);
-const maxRadius = screen.width/10;
-const maxVelocity = screen.width/10000;
-console.log(maxRadius);
+const direction = [-1, 1];
+let color = ['#BF4526'];
+const numberOfParticles = screen.width/10;
+// console.log(numberOfParticles);
+const maxRadius = screen.width/50;
+const maxVelocity = screen.width/80000;
+// console.log(maxRadius);
 const canvas = document.getElementById('animation-canvas');
 const ctx = canvas.getContext('2d');
 let spaceMap = {};
 let queue = [];
+let delete_queue = [];
+
+// console.log(Math.random()*color.length)
+// console.log(color)
 
 
 
@@ -17,7 +21,7 @@ class Particle{
         this.x = x;
         this.y = y;
         this.radius = Math.random() * maxRadius/10 + 1;;
-        this.color = color;
+        this.color = color[Math.round(Math.random() * color.length)];
         this.directionX = direction[Math.round(Math.random() * 1)];
         this.directionY = direction[Math.round(Math.random() * 1)];
         this.velocityX = Math.random() * maxVelocity+1;
@@ -49,34 +53,35 @@ class Particle{
     }
 
     getPoints(){
-        for (let p = 0; p < Math.PI*2; p+=0.2){
+        for (let p = 0; p < Math.PI*2; p+=0.1){
             this.points = [];
             let x = Math.ceil(this.x + (Math.cos(p)*this.radius));
             let y = Math.ceil(this.y + (Math.sin(p)*this.radius));
 
-            if (spaceMap[x + "" + y] === undefined){
-                spaceMap[x + "" + y] = [this];
+            if (spaceMap[x + "_" + y] === undefined){
+                spaceMap[x + "_" + y] = [this];
             }
 
             else{
-                spaceMap[x + "" + y].push(this);
+                spaceMap[x + "_" + y].push(this);
 
-                for (let i = 0; i < spaceMap[x + "" + y].length; i++){
-                    if (spaceMap[x + "" + y][i] === undefined){
+                for (let i = 0; i < spaceMap[x + "_" + y].length; i++){
+                    if (spaceMap[x + "_" + y][i] === undefined){
                         continue;
                     }
 
-                    if (spaceMap[x + "" + y][i].radius < this.radius){
-                        this.radius += spaceMap[x + "" + y][i].radius/5;
+                    if (spaceMap[x + "_" + y][i].radius < this.radius){
+                        this.radius += spaceMap[x + "_" + y][i].radius/5;
 
-                        let planet_mass = spaceMap[x + "" + y][i] - spaceMap[x + "" + y][i].radius;
+                        let planet_mass = spaceMap[x + "_" + y][i] - spaceMap[x + "_" + y][i].radius;
 
-                        // spaceMap[x + "" + y][i].explode();
-                        delete spaceMap[x + "" + y][i];
+                        spaceMap[x + "_" + y][i].explode();
+                        // delete spaceMap[x + "_" + y][i];
+                        delete_queue.push(particles.indexOf(spaceMap[x + "_" + y][i]))
 
                         while (planet_mass > 0){
                             let particle_mass = Math.random() * planet_mass + 0.1;
-                            queue.push(new Particle(Math.random()*canvas.width, 0, particle_mass, color));
+                            queue.push(new Particle(Math.random()*canvas.width, Math.random()*canvas.height, particle_mass, color));
                             planet_mass = planet_mass - particle_mass;
                         }
 
@@ -84,13 +89,18 @@ class Particle{
                         break;
                     }
 
-                    else if (spaceMap[x + "" + y][i].radius > this.radius){
-                        spaceMap[x + "" + y][i].radius += this.radius/2;
+                    else if (spaceMap[x + "_" + y][i].radius > this.radius){
+                        spaceMap[x + "_" + y][i].radius += this.radius/2;
 
                         let planet_mass = this.radius;
 
-                        // this.explode();
-                        delete spaceMap[x + "" + y][spaceMap[x + "" + y].indexOf(this)];
+                        this.explode();
+                        // delete spaceMap[x + "_" + y][spaceMap[x + "_" + y].indexOf(this)];
+                        delete_queue.push(particles.indexOf(this))
+                        
+                        console.log(planet_mass)
+
+                        spaceMap[x + "_" + y][i].direction = spaceMap[x + "_" + y][i].direction * -1;
 
                         while (planet_mass > 0){
                             let particle_mass = Math.random() * planet_mass + 0.1;
@@ -98,13 +108,13 @@ class Particle{
                             planet_mass = planet_mass - particle_mass;
                         }
 
-                        spaceMap[x + "" + y][i].directionX = spaceMap[x + "" + y][i].directionX * -1;
+                        spaceMap[x + "_" + y][i].directionX = spaceMap[x + "_" + y][i].directionX * -1;
                         break;
                     }
 
-                    else{
-                        this.directionX = this.directionX * -1;
-                        }
+                    // else{
+                    //     this.directionX = this.directionX * -1;
+                    //     }
                     }
                 }
                 
@@ -132,13 +142,20 @@ for(let i = 0; i < numberOfParticles; i++){
 }
 
 function animate(){
+    for (let i=0; i<delete_queue.length; i++){
+        delete particles[delete_queue[i]];
+    }
+    delete_queue = [];
+
     requestAnimationFrame(animate);
     spaceMap = {};
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     new_star = queue.shift();
+
     if (new_star !== undefined){
         particles.push(new_star);
     }
+
     for(let i = 0; i < particles.length; i++){
         particles[i].getPoints();
         if (particles[i] !== undefined){
